@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/PlatformBlue2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/BlueShip2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Level2.gd" type="Script" id=3]
+[ext_resource path="res://assets/render-checkerboard1.jpg" type="Texture" id=4]
+[ext_resource path="res://scenes/rock.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 75.75, 55 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 773, 12.5013 )
+
+[sub_resource type="PhysicsMaterial" id=3]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="win" type="Area2D" parent="."]
+position = Vector2( 947, 547 )
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite" type="Sprite" parent="win"]
+position = Vector2( 1, 0 )
+scale = Vector2( -0.514616, 0.351425 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="win"]
+margin_left = -21.0
+margin_top = -71.0
+margin_right = 19.0
+margin_bottom = -57.0
+text = "FINISH"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -98.0
+margin_top = -124.0
+margin_right = -54.0
+margin_bottom = -110.0
+text = "
+"
+align = 1
+valign = 1
+
+[node name="Lose" type="Area2D" parent="CanvasLayer/Label"]
+position = Vector2( -926, -476 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Label/Lose"]
+position = Vector2( 546, 800 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Label/Lose"]
+position = Vector2( 1227, 399 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="WinLose" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.0
+margin_top = -22.0
+margin_right = -33.0
+margin_bottom = -8.0
+rect_scale = Vector2( 3.43569, 3.43569 )
+text = "YOU WIN"
+percent_visible = 0.0
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 30.0
+margin_right = 54.0
+margin_bottom = 50.0
+text = "Replay"
+
+[node name="PlatformBlue2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 97, 245 )
+
+[node name="BlueShip2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 97, 8 )
+collision_layer = 2
+collision_mask = 255
+collision/safe_margin = 0.001
+
+[node name="rocks" type="Node2D" parent="."]
+
+[node name="rock" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 480, 121 )
+physics_material_override = SubResource( 3 )
+
+[node name="rock2" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 169, 494 )
+
+[node name="rock3" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 970, 274 )
+
+[node name="rock4" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 796, 32 )
+
+[node name="rock5" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 539, 389 )
+
+[node name="rock6" parent="rocks" instance=ExtResource( 5 )]
+position = Vector2( 646, 579 )
+
+[connection signal="game_end" from="." to="PlatformBlue2" method="_on_Level2_game_end"]
+[connection signal="body_entered" from="win" to="." method="_on_win_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/Label/Lose" to="." method="_on_Area2D2_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="found_platform" from="BlueShip2" to="PlatformBlue2" method="_on_BlueShip2_found_platform"]
+[connection signal="lost_platform" from="BlueShip2" to="PlatformBlue2" method="_on_BlueShip2_lost_platform"]
