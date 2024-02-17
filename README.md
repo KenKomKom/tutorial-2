@@ -29,11 +29,11 @@ Ada, karena pada scene ObjectiveArea, terdapat kode yang akan tereksekusi ketika
 
 - Ubah nilai atribut Mass dan Weight pada tipe RigidBody2D secara bebas di scene BlueShip, lalu coba jalankan scene MainLevel. Apa yang terjadi?
 
-  Setelah perubahan Mass dan Weight pada BlueShip, pesawat menjadi jatuh dengan lebih cepat. Hal ini dikarenakan object tersebut dipengaruhi oleh physics engine pada godot yang mengkalkulasi gaya gravitasi sehingga dengan berat yang lebih tinggi, BlueShip jatuh lebih cepat. 
+    Pada percobaan ini, tidak ada perubahan pada MainLevel. Mass dan Weight biasa berpengaruh jika ada kolisi dari dua rigidbody. Dalam percobaan yang saya lakukan sendiri, rigidbody2d dan rigidbody2d type characther akan terjadi kolisi. Mass dan Weight pada interaksi ini berpengaruh dalam hal, jika misal player menggerakan salah satu dari rigidbody2d agar menabrak yang lain. rigidbody kedua akan terdorong bersama dengan yang pertama, jika mass atau weight ditingkatkan, maka rigidbody kedua yang didorong akan terdorong dengan lebih pelan, sedangkan mass di kecil kan, maka akan terdorong dengan lebih cepat.
 
 - Ubah nilai atribut Disabled pada tipe CollisionShape2D di scene StonePlatform, lalu coba jalankan scene MainLevel. Apa yang terjadi?
 
-  Jika properti disabled pada CollusuionShape2D adalah true, maka object StonePlatform menjadi tidak memiliki area kolisi sehingga object object lain bisa melewatinya dan tidak tertabrak.
+  Jika properti disabled pada CollisionShape2D adalah true, maka object StonePlatform menjadi tidak memiliki area kolisi sehingga object object lain bisa melewatinya dan tidak tertabrak.
 
 - Pada scene MainLevel, coba manipulasi atribut Position, Rotation, dan Scale milik node BlueShip secara bebas. Apa yang terjadi pada visualisasi BlueShip di Viewport?
 
