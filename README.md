@@ -37,8 +37,8 @@ Ada, karena pada scene ObjectiveArea, terdapat kode yang akan tereksekusi ketika
 
 - Pada scene MainLevel, coba manipulasi atribut Position, Rotation, dan Scale milik node BlueShip secara bebas. Apa yang terjadi pada visualisasi BlueShip di Viewport?
 
-Pengaruh dari perubahan-perubahan tersebut adalah object BlueShip akan ikut berubah sesuai dengan angka yang ada pada properti Position, Rotation dan Scale. Pengaruh ini juga akan berdampak terhadap semua child node yang ada pada BlueShip sehingga CollisionShape2D, dan spritenya juga akan berubah tampilannya di viewport, tetapi atribut dari children nodesnya tidak berubah karena mereka tidak mengalami perubahan secara langsung
+    Pengaruh dari perubahan-perubahan tersebut adalah object BlueShip akan ikut berubah sesuai dengan angka yang ada pada properti Position, Rotation dan Scale. Pengaruh ini juga akan berdampak terhadap semua child node yang ada pada BlueShip sehingga CollisionShape2D, dan spritenya juga akan berubah tampilannya di viewport, tetapi atribut dari children nodesnya tidak berubah karena mereka tidak mengalami perubahan secara langsung
 
 - Pada scene MainLevel, perhatikan nilai atribut Position node PlatformBlue, StonePlatform, dan StonePlatform2. Mengapa nilai Position node StonePlatform dan StonePlatform2 tidak sesuai dengan posisinya di dalam scene (menurut Inspector) namun visualisasinya berada di posisi yang tepat?
 
-- Hal ini dikarenakan position yang dituliskan oleh StonePlatform dan StonePlatform2 adalah posisinya terhadap parent node nya, seperti yang telah saya jelaskan pada pertanyaan sebelumnya. Dengan demikian, cara mengartikan nilai dari position mereka adalah StonePlatform berada pada pusat dari PlatformBlue dan StonePlatform2 berada 70 pixel dikanan pusat PlatformBlue
+  Hal ini dikarenakan position yang dituliskan oleh StonePlatform dan StonePlatform2 adalah posisinya terhadap parent node nya, seperti yang telah saya jelaskan pada pertanyaan sebelumnya. Dengan demikian, cara mengartikan nilai dari position mereka adalah StonePlatform berada pada pusat dari PlatformBlue dan StonePlatform2 berada 70 pixel dikanan pusat PlatformBlue
